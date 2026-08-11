@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>汕头亲子攻略 · 3天2晚 · 图文版 v11</title>
 <style>
 :root{
@@ -16,7 +17,7 @@
 *{box-sizing:border-box;}
 body{
   font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
-  max-width:900px;
+  max-width:900px;width:100%;
   margin:0 auto;
   padding:0 20px 40px;
   background:var(--bg);
@@ -110,6 +111,20 @@ tr:hover td{background:#fafafa;}
   }
   .toolbar,.fab,.fab-tip{display:none !important;}
   .section,.day,.poi,.pitfall,.food-tip,.note,.warn-strong{break-inside:avoid;}
+}
+
+@media (max-width:640px){
+  body{padding:0 12px 30px;}
+  .banner{padding:24px 16px;margin:12px 0;}
+  .banner h1{font-size:24px;}
+  .overview,.route-cards{grid-template-columns:repeat(2,1fr);gap:10px;}
+  .day,.section{padding:10px 12px;}
+  .day .day-head{flex-direction:column;align-items:flex-start;gap:4px;}
+  .day .day-head .right{font-size:12px;}
+  .poi{padding:8px 10px;}
+  table{font-size:13px;}
+  th,td{padding:7px 8px;word-break:break-word;}
+  .toolbar{position:static;padding:8px 0;}
 }
 </style>
 </head>
