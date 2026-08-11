@@ -98,15 +98,9 @@
 </div>
 
 <!-- 顶部固定操作栏:滚动到任何位置都能点 -->
-<div class="toolbar" id="toolbar" style="background:#faf7f2;position:sticky;top:0;z-index:99;">
-  <div>
-    <span style="font-size:15px;font-weight:bold;">🚂 赣州亲子攻略 · 4 天 3 晚</span>
-    <span class="info" style="margin-left:10px;">13 条小红书博主亲测 · 7 页</span>
-  </div>
-  <div style="display:flex;gap:8px;">
-    <button onclick="window.print()" title="Ctrl+P / Cmd+P 也可以">🖨️ 打印 / 另存 PDF</button>
-    <button onclick="shareContent()" title="把页面链接发给微信好友">🔗 分享给好友</button>
-  </div>
+<div class="toolbar" style="position:sticky;top:0;z-index:99;background:#faf7f2;padding:8px 0;display:flex;justify-content:flex-end;gap:8px;">
+  <button onclick="window.print()" style="background:#e76f51;color:#fff;border:none;padding:8px 14px;border-radius:8px;font-size:13px;cursor:pointer;">🖨️ 打印 / 另存PDF</button>
+  <button onclick="navigator.clipboard.writeText(window.location.href).then(()=>alert('链接已复制'))" style="background:#e76f51;color:#fff;border:none;padding:8px 14px;border-radius:8px;font-size:13px;cursor:pointer;">🔗 复制链接</button>
 </div>
 
 <!-- 浮动按钮(右下角) -->
@@ -136,9 +130,6 @@
     }
   });
 </script>
-
-<h1 style="background:#e76f51;color:white;font-size:28px;text-align:center;padding:18px;margin:0;">🚂 赣州亲子慢游 4 天 3 晚 · 真图文版</h1>
-<div style="background:#d95f3f;color:white;text-align:center;padding:6px;font-size:12.5px;">来自 13 条小红书博主亲历笔记 · 8 家博主推荐餐馆 · 15 条第一人称避坑</div>
 
 <!-- =================== 4 位博主亲测路线 =================== -->
 <table style="width:100%;">
