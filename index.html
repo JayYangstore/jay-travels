@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Jay 的旅游攻略库 · JayTravels</title>
+<style>
+:root {
+  --primary:#c8102e;
+  --bg:#fdf8f3;
+  --card:#fff;
+  --text:#2b2b2b;
+  --muted:#777;
+  --blue:#1f4e78;
+  --blue-light:#e9f0f7;
+}
+*{box-sizing:border-box;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  max-width:900px;
+  margin:0 auto;
+  padding:0 20px 60px;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+}
+.banner{
+  background:linear-gradient(135deg,#c8102e,#a00c22);
+  color:#fff;
+  padding:40px 24px 32px;
+  border-radius:0 0 18px 18px;
+  text-align:center;
+  margin:0 -20px 28px;
+  box-shadow:0 4px 16px rgba(200,16,46,.25);
+}
+.banner h1{font-size:30px;letter-spacing:2px;margin-bottom:8px;}
+.banner .sub{font-size:14px;opacity:.92;}
+.banner .count{
+  display:inline-block;margin-top:14px;
+  background:rgba(255,255,255,.18);
+  padding:4px 16px;border-radius:20px;
+  font-size:13px;font-weight:bold;
+}
+
+.intro{
+  background:#fff;padding:16px 20px;border-radius:12px;
+  margin:0 0 24px;
+  box-shadow:0 1px 3px rgba(0,0,0,.05);
+  font-size:14px;color:#444;
+}
+.intro strong{color:var(--blue);}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:18px;
+}
+.card{
+  background:#fff;border-radius:14px;overflow:hidden;
+  text-decoration:none;color:inherit;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+  transition:transform .2s,box-shadow .2s;
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.12);}
+.card-banner{
+  padding:18px 18px;
+  color:#fff;
+  display:flex;align-items:center;gap:12px;
+}
+.card-banner .icon{font-size:36px;}
+.card-banner .city{font-size:22px;font-weight:bold;letter-spacing:1px;}
+
+.card-body{padding:14px 18px;display:flex;flex-direction:column;gap:8px;flex:1;}
+.card-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted);}
+.card-title{font-weight:bold;font-size:15px;color:var(--blue);}
+.card-desc{font-size:13px;color:#555;flex:1;}
+.card-footer{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:8px;
+  border-top:1px solid #f0f0f0;
+  font-size:12px;
+}
+.card-footer .open{color:var(--primary);font-weight:bold;}
+
+.empty{
+  background:#fff;padding:32px;border-radius:12px;
+  text-align:center;color:var(--muted);
+  margin-top:24px;
+}
+
+.footer{
+  text-align:center;margin-top:32px;color:var(--muted);font-size:12px;
+}
+.footer a{color:var(--blue);}
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <h1>🚂 Jay 的旅游攻略库</h1>
+  <div class="sub">已收藏 3 个城市的亲子攻略 · 出行前点开就能看</div>
+  <div class="count">📚 3 个城市 · 持续累积中</div>
+</div>
+
+<div class="intro">
+  <strong>📌 这是什么：</strong>每次做的亲子攻略 v{N} 定稿版自动收录在这里。点卡片看完整行程（HTML 自包含、PDF 可下载打印）。<br>
+  <strong>🔄 工作流：</strong>你拍板认可的最终版才上线（不是每次修改都更）；累积越翻越多。<br>
+  <strong>🆕 新增城市：</strong>你说"做一份 XX 攻略" → 我做完你认可 → 我加到这里（你也可以让我"上线"同步到 GitHub Pages）。
+</div>
+
+<div class="cards">
+    <a href="shantou-2026-08-21/index.html" class="card">
+      <div class="card-banner" style="background:linear-gradient(135deg,#c8102e,#c8102ecc);">
+        <span class="icon">🌊</span>
+        <span class="city">汕头</span>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="date">📅 2026-08-21</span>
+          <span class="days">3天2晚</span>
+          <span style="background:#ffeb3b;color:#333;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:bold;">🚆 即将出行</span>
+        </div>
+        <div class="card-title">汕头·南澳岛·潮州 · 3天2晚亲子攻略</div>
+        <div class="card-desc">3 天 2 晚 · 高铁 + 自驾南澳岛 + 潮州古城 · 含生腌</div>
+        <div class="card-footer">
+          <span class="version">📦 v11</span>
+          <span class="open">查看攻略 →</span>
+        </div>
+      </div>
+    </a>
+    <a href="changsha-2026-08-01/index.html" class="card">
+      <div class="card-banner" style="background:linear-gradient(135deg,#D32F2F,#D32F2Fcc);">
+        <span class="icon">🌶️</span>
+        <span class="city">长沙</span>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="date">📅 2026-08-01</span>
+          <span class="days">4天3晚</span>
+          <span style="background:#c8e6c9;color:#2e7d32;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:bold;">✅ 已收藏</span>
+        </div>
+        <div class="card-title">长沙亲子慢游 4 天 3 晚 · 卧铺版</div>
+        <div class="card-desc">4 天 3 晚 · 橘子洲 + 岳麓书院 + 文和友 · 卧铺出行</div>
+        <div class="card-footer">
+          <span class="version">📦 v2</span>
+          <span class="open">查看攻略 →</span>
+        </div>
+      </div>
+    </a>
+    <a href="ganzhou-2026-07-30/index.html" class="card">
+      <div class="card-banner" style="background:linear-gradient(135deg,#8B4513,#8B4513cc);">
+        <span class="icon">🏯</span>
+        <span class="city">赣州</span>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="date">📅 2026-07-30</span>
+          <span class="days">4天3晚</span>
+          <span style="background:#c8e6c9;color:#2e7d32;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:bold;">✅ 已收藏</span>
+        </div>
+        <div class="card-title">赣州亲子慢游 4 天 3 晚 · 真图文版</div>
+        <div class="card-desc">4 天 3 晚 · 红色故都 + 古浮桥 + 恐龙园 · 卧铺出行</div>
+        <div class="card-footer">
+          <span class="version">📦 v10</span>
+          <span class="open">查看攻略 →</span>
+        </div>
+      </div>
+    </a>
+</div>
+
+<div class="empty" style="display:none;">
+  <div style="font-size:48px;opacity:.3;">📭</div>
+  <div>暂无攻略</div>
+</div>
+
+<div class="footer">
+  🚂 JayTravels · 最后更新 2026-08-11 · 由 Hermes Desktop 维护
+</div>
+
+</body>
+</html>
