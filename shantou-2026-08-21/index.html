@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>汕头亲子攻略 · 3天2晚 · 图文版 v11</title>
+<style>
+:root{
+  --primary:#c8102e;
+  --bg:#fdf8f3;
+  --card:#fff;
+  --text:#2b2b2b;
+  --muted:#777;
+  --blue:#1f4e78;
+  --blue-light:#e9f0f7;
+}
+*{box-sizing:border-box;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  max-width:900px;
+  margin:0 auto;
+  padding:0 20px 40px;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+}
+h1,h2,h3,h4{margin:0;}
+a{color:var(--primary);text-decoration:none;}
+.banner{
+  background:linear-gradient(135deg,#c8102e,#a00c22);
+  color:#fff;padding:32px 24px;border-radius:14px;
+  text-align:center;margin:24px 0 18px;
+  box-shadow:0 4px 16px rgba(200,16,46,.25);
+}
+.banner h1{font-size:30px;letter-spacing:2px;margin-bottom:6px;}
+.banner .sub{font-size:14px;opacity:.92;}
+
+.toolbar{position:sticky;top:0;background:var(--bg);padding:10px 0;z-index:99;
+  display:flex;justify-content:flex-end;gap:8px;}
+.toolbar button{background:var(--primary);color:#fff;border:none;
+  padding:8px 14px;border-radius:8px;font-size:13px;cursor:pointer;}
+.toolbar button:hover{background:#a00c22;}
+
+.section{margin:18px 0;padding:14px 18px;background:var(--card);border-radius:12px;
+  box-shadow:0 1px 3px rgba(0,0,0,.05);}
+.section-title{background:var(--blue);color:#fff;padding:14px 18px;border-radius:12px;
+  font-size:20px;font-weight:bold;margin:24px 0 12px;letter-spacing:1px;}
+
+.overview{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:8px 0;}
+.ov-card{background:var(--blue-light);padding:12px;border-radius:8px;text-align:center;}
+.ov-card .num{font-size:22px;color:var(--blue);font-weight:bold;}
+.ov-card .lbl{font-size:12px;color:var(--muted);margin-top:2px;}
+
+.route-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:8px 0;}
+.route{background:#fff8e1;border:1px solid #ffe082;border-radius:10px;padding:14px;}
+.route h4{margin:0 0 6px;font-size:14px;}
+.route h4 .tag{background:#ffc107;color:#000;font-size:11px;padding:1px 6px;border-radius:4px;margin-right:4px;}
+.route p{margin:4px 0;font-size:13px;color:var(--muted);}
+
+.day{background:#fff;border:1px solid #eee;border-radius:10px;padding:14px 18px;margin:10px 0;}
+.day .day-head{background:var(--blue);color:#fff;padding:10px 14px;border-radius:8px;
+  display:flex;justify-content:space-between;align-items:center;margin:-14px -18px 12px;}
+.day .day-head .left{font-size:17px;font-weight:bold;}
+.day .day-head .right{font-size:13px;opacity:.9;}
+
+.poi{background:#fafafa;border-left:4px solid var(--blue);padding:10px 14px;margin:8px 0;border-radius:4px;}
+.poi .poi-title{font-weight:bold;color:var(--blue);font-size:15px;margin-bottom:4px;}
+.poi .poi-time{font-size:12px;color:var(--muted);margin-bottom:6px;}
+.poi .poi-desc{font-size:14px;color:#444;}
+.poi .poi-tips{font-size:12px;color:#888;margin-top:6px;font-style:italic;}
+
+.pitfall{background:#fff1f0;border:1px solid #f48771;border-radius:6px;
+  padding:8px 12px;margin:6px 0;font-size:13px;}
+.pitfall::before{content:"⚠️ ";font-weight:bold;}
+
+.food-tip{background:#e8f7ec;border:1px solid #7bc88a;border-radius:6px;
+  padding:8px 12px;margin:6px 0;font-size:13px;}
+.food-tip::before{content:"🍴 ";}
+
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14px;}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid #eee;}
+th{background:var(--blue-light);color:var(--blue);font-weight:bold;}
+tr:hover td{background:#fafafa;}
+.budget{font-size:13px;color:var(--muted);margin-top:6px;}
+
+.src-table{font-size:13px;}
+.src-table a{word-break:break-all;}
+
+.note{background:#fffbe6;border:1px dashed #ffe58f;border-radius:6px;padding:10px 14px;
+  margin:10px 0;font-size:13px;color:#7c5a00;}
+.note::before{content:"📌 ";}
+
+.warn-strong{background:#fff1f0;border:2px solid #ff4d4f;border-radius:6px;padding:12px 16px;
+  margin:12px 0;font-size:14px;color:#a8071a;}
+.warn-strong::before{content:"🚨 ";}
+
+.transport-table{font-size:13px;}
+.transport-table th{font-size:12px;}
+
+.fab{position:fixed;bottom:20px;right:20px;background:var(--primary);color:#fff;border-radius:50%;
+  width:50px;height:50px;border:none;cursor:pointer;
+  box-shadow:0 4px 12px rgba(200,16,46,.35);font-size:18px;}
+.fab-tip{position:fixed;bottom:78px;right:14px;background:#333;color:#fff;
+  padding:4px 8px;border-radius:4px;font-size:11px;display:none;}
+
+@media print {
+  body{max-width:none !important;padding:0 !important;margin:0 !important;}
+  *,*::before,*::after{
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
+  .toolbar,.fab,.fab-tip{display:none !important;}
+  .section,.day,.poi,.pitfall,.food-tip,.note,.warn-strong{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <h1>🚂 汕头·南澳岛·潮州 · 3天2晚亲子攻略</h1>
+  <div class="sub">v11 · 2026-08-21 ~ 2026-08-23 · 2大2小 · 广州南出发 · 公交+生腌</div>
+</div>
+
+<div class="toolbar">
+  <button onclick="window.print()">🖨️ 打印 / 另存PDF</button>
+  <button onclick="navigator.clipboard.writeText(window.location.href).then(()=>alert('链接已复制'))">🔗 复制链接</button>
+</div>
+
+<!-- ============ 概览 ============ -->
+<div class="section">
+  <h2 style="font-size:18px;margin-bottom:10px;">📋 一眼看懂这趟旅程</h2>
+  <div class="overview">
+    <div class="ov-card"><div class="num">3</div><div class="lbl">天数</div></div>
+    <div class="ov-card"><div class="num">4</div><div class="lbl">人数(2大2小)</div></div>
+    <div class="ov-card"><div class="num">¥3150</div><div class="lbl">总预算(4人)</div></div>
+    <div class="ov-card"><div class="num">高铁</div><div class="lbl">出行方式</div></div>
+  </div>
+</div>
+
+<!-- ============ 路线卡 ============ -->
+<div class="section">
+  <h2 style="font-size:18px;margin-bottom:10px;">🚦 4 种参考路线（按你需求选 B 亲子版）</h2>
+  <div class="route-cards">
+    <div class="route">
+      <h4><span class="tag">A</span> 省钱党</h4>
+      <p>汕头站附近经济酒店，全程公交/打车，吃街边小吃</p>
+      <p>💰 ~¥3500（4人）· 节奏紧</p>
+    </div>
+    <div class="route">
+      <h4><span class="tag" style="background:#4caf50;color:#fff;">B</span> 亲子版 ⭐推荐</h4>
+      <p>1 晚汕头市区+1 晚南澳岛民宿，慢节奏玩海+古城</p>
+      <p>💰 ~¥3150（4人）· 板栗妞妞不累</p>
+    </div>
+    <div class="route">
+      <h4><span class="tag">C</span> 出片党</h4>
+      <p>多打卡骑楼、灯塔、日落，机位多</p>
+      <p>💰 ~¥5000（4人）· 节奏中等</p>
+    </div>
+    <div class="route">
+      <h4><span class="tag">D</span> 特种兵</h4>
+      <p>3 天跑遍汕头+潮州+南澳岛全部景点</p>
+      <p>💰 ~¥3000（4人）· 累，带娃不建议</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 行程总览 ============ -->
+<div class="section">
+  <h2 style="font-size:18px;margin-bottom:10px;">🗓️ 行程总览</h2>
+  <table>
+    <tr><th>日期</th><th>主题</th><th>主玩法</th><th>住宿</th></tr>
+    <tr><td><b>Day1</b><br>8/21 周四</td><td>下午到 · 汕头小公园 + 生腌</td><td>下午高铁 → 民宿 → 小公园逛吃 → 龙眼南路生腌晚饭</td><td>汕头市区民宿</td></tr>
+    <tr><td><b>Day2</b><br>8/22 周五</td><td>南澳岛看海</td><td>公交上岛 → 青澳湾玩沙 → 自然之门 → 长山尾灯塔</td><td>南澳岛民宿</td></tr>
+    <tr><td><b>Day3</b><br>8/23 周六</td><td>潮州古城·午饭后退程</td><td>公交去古城 → 牌坊街 + 广济桥 → 牛肉火锅 → 高铁回广州</td><td>—</td></tr>
+  </table>
+  <div class="budget">📌 Day3 退房后行李寄存，午饭后退程（约 14:30-15:30 高铁离开潮汕站回广州南）</div>
+</div>
+
+<!-- ============ Day 1 ============ -->
+<div class="day">
+  <div class="day-head">
+    <div class="left">📅 Day 1 · 8/21 周四 · 下午到 + 汕头老城</div>
+    <div class="right">住宿：汕头市区</div>
+  </div>
+
+  <div class="poi">
+    <div class="poi-title">🚄 广州南 → 汕头站</div>
+    <div class="poi-time">14:00 - 17:30（约 3.5 小时，到 17:30 是典型班次）</div>
+    <div class="poi-desc">今天 8/11，12306 预售 14 天 → 8/14 起售 8/21 的票。**建议买 13:30-14:30 出发、17:00-18:00 到达的车次**，下班+换乘不用赶时间。</div>
+    <div class="poi-tips">
+      🎫 票价（二等座）：你 + 老婆 全票 ¥220-260 × 2；板栗 半票 ¥110-130；妞妞 免费。**来回 4 人合计 ≈ ¥700-850**
+    </div>
+  </div>
+
+  <div class="poi">
+    <div class="poi-title">🏨 入住汕头市区民宿</div>
+    <div class="poi-time">18:00 - 18:30</div>
+    <div class="poi-desc">小公园 / 海滨长廊 / 龙眼南路附近 2 房一厅民宿，¥200/晚。打车从汕头站过去 25 分钟 ¥30 左右。</div>
+    <div class="poi-tips">📍 推荐区域：龙眼南路美食街（晚饭步行 5 分钟到）或海滨路</div>
+  </div>
+
+  <div class="poi">
+    <div class="poi-title">🏛️ 汕头小公园开埠区（短逛 30 分钟）</div>
+    <div class="poi-time">18:30 - 19:00</div>
+    <div class="poi-desc">到得晚，主要看夜景。中山纪念亭亮灯+骑楼打灯，氛围比白天更好。带娃 30 分钟拍拍照就到晚饭点了。</div>
+    <div class="poi-tips">📷 夜间机位：中山纪念亭打灯时人少，5 分钟出片</div>
+  </div>
+
+  <div class="poi">
+    <div class="poi-title">🦀 龙眼南路生腌晚饭（你点名的生腌）</div>
+    <div class="poi-time">19:00 - 20:30</div>
+    <div class="poi-desc">**重点饭局**！龙眼南路美食街是汕头生腌的"宇宙中心"，一条街至少 5 家生腌店。推荐 <b>金二顺潮汕生腌（非遗）</b> 或 <b>瑞娇嫲嫲潮汕生腌</b>。</div>
+    <div class="poi-tips">
+      🦐 招牌菜：生腌膏蟹（蟹黄饱满）、生腌血蚌、生腌虾、生腌三目蟹<br>
+      👶 妞妞小别吃生的，板栗可以尝虾蟹；肠胃敏感配姜茶<br>
+      💰 4 人套餐人均 ¥100-150
+    </div>
+  </div>
+
+  <div class="pitfall">
+    <b>生腌避坑：</b>① 一定要选<b>本地开店 5 年以上</b>的店，游客区新店慎入；② 不要一次点太多，先来 2-3 个品种试；③ **肠胃敏感 + 妞妞**（4 岁）别碰生海鲜；④ 配姜茶/白酒更安全。
+  </div>
+
+  <div class="food-tip">
+    <b>Day1 晚饭选这家</b>金二顺潮汕生腌·非遗（龙眼南二店）·人均 ¥120 · 招牌：腌膏蟹/腌血蚌/腌生蚝<br>
+    <b>备选</b>瑞娇嫲嫲潮汕生腌（龙眼南路店）·人均 ¥100
+  </div>
+</div>
+
+<!-- ============ Day 2 ============ -->
+<div class="day">
+  <div class="day-head">
+    <div class="left">📅 Day 2 · 8/22 周五 · 南澳岛看海</div>
+    <div class="right">住宿：南澳岛民宿</div>
+  </div>
+
+  <div class="poi">
+    <div class="poi-title">🚗 汕头 → 南澳岛（自驾·租车平台备选）</div>
+    <div class="poi-time">08:30 - 11:00（含取车 + 30 分钟过桥）</div>
+    <div class="poi-desc">
+      <b>📱 租车平台价格参考（取车：汕头站/龙湖，1 天 24 小时）：</b><br>
+      ┌──────────┬─────────┬─────────────────────┐<br>
+      │ 平台     │ 车型    │ 8/21 报价（含基础险）│<br>
+      ├──────────┼─────────┼─────────────────────┤<br>
+      │ <b>飞猪</b>    │ 经济型  │ ¥99 - ¥180/天       │<br>
+      │ 携程     │ 经济型  │ ¥120 - ¥220/天       │<br>
+      │ 神州/一嗨│ 经济型  │ ¥150 - ¥250/天       │<br>
+      │ 携程SUV  │ 紧凑SUV │ ¥250 - ¥400/天       │<br>
+      └──────────┴─────────┴─────────────────────┘<br>
+      <b>自驾额外费用：</b>南澳大桥过桥费 ¥96（进岛收）+ 油费约 ¥60-80（环岛 60km）+ 平台手续费 ¥20-50<br>
+      <b>1 天自驾总费用估算 = 平台日租 ¥150 + 过桥费 ¥96 + 油费 ¥70 + 手续 ¥30 ≈ ¥350</b>（经济型基准）
+    </div>
+    <div class="poi-tips">
+      📍 <b>取车点推荐：</b>汕头站/龙湖高铁站附近门店最多，携程/飞猪都可现场比价<br>
+      🅿️ <b>停车：</b>南澳岛环岛公路免费停车位多；青澳湾沙滩旁有停车场 ¥20/天<br>
+      ⚠️ <b>注意：</b>① 提前 1-2 天预订，8 月旺季 + 周末会涨价 20-40%；>③ 经济型（朗逸/凯越）够用，4 人 2 大行李能装；>③ 取车时拍车身视频留证
+    </div>
+  </div>
+
+  <div class="pitfall">
+    <b>自驾 vs 公交对比：</b><br>
+    <b>自驾 ¥350</b>：灵活、随停（长山尾灯塔、青澳湾、自然之门串着玩不累），适合 1 天玩透<br>
+    <b>公交 ¥60</b>（4 人）：便宜但要等车 + 走一段，单程 1.5-2 小时，带娃行李累<br>
+    <b>包车 ¥400-500</b>（半日司机）：不操心但不灵活<br>
+    💡 建议：<b>自驾最划算也最舒服</b>，4 人 ¥350 = 人均 ¥88，板栗妞妞坐车也开心
+  </div>
+
+  <div class="poi">
+      <div class="poi-title">🏖️ 青澳湾沙滩</div>
+    <div class="poi-time">11:00 - 14:00（含午饭）</div>
+    <div class="poi-desc">南澳岛最美沙滩，水清沙细。带娃挖沙、踏浪、玩水。**8 月水温 27-29°C**，正好下水玩。中午先在沙滩旁吃饭休息。</div>
+    <div class="poi-tips">👶 给板栗妞妞带换洗衣服 + 防晒 + 沙滩玩具</div>
+  </div>
+
+  <div class="food-tip">
+    <b>午饭：</b>青澳湾附近<b>许大姐的菜·海鲜小炒</b>（人均 ¥80-120），孩子可以吃清蒸鱼+炒饭。
+  </div>
+
+  <div class="pitfall">
+    <b>避坑：</b>青澳湾中午阳光最毒！<b>14:00 后再下水</b>，中午时段在民宿休息/吃午饭。防晒霜 50+ PA++++ 必备。
+  </div>
+
+  <div class="poi">
+    <div class="poi-title">📍 自然之门 + 长山尾灯塔</div>
+    <div class="poi-time">15:00 - 17:30</div>
+    <div class="poi-desc">自然之门（北回归线标志塔），免费打卡。长山尾灯塔在岛最东端，"启航广场"旁，桥头机位拍照。坐岛内公交 601/602 路串联（¥2-5/人）。</div>
+    <div class="poi-tips">📷 自然之门地标+亲子照必拍</div>
+  </div>
+
+  <div class="poi">
+    <div class="poi-title">🌊 入住南澳岛民宿 + 海鲜晚餐</div>
+    <div class="poi-time">18:00 - 21:00</div>
+    <div class="poi-desc">推荐<b>青澳湾/后宅镇附近民宿</b>（人均 200 档，2 房一厅有）。晚饭吃海鲜大排档：<b>渔香餐厅·海鲜大排档</b>或<b>朋来洲海鲜排档</b>。</div>
+    <div class="poi-tips">🍴 让孩子尝尝南澳本港虾蟹</div>
+  </div>
+
+  <div class="food-tip">
+    <b>晚饭推荐：</b>渔香餐厅·海鲜大排档（人均 ¥120）｜朋来洲海鲜排档（人均 ¥100）｜许大姐的菜·青澳湾店（人均 ¥100）
+  </div>
+</div>
+
+<!-- ============ Day 3 ============ -->
+<div class="day">
+  <div class="day-head">
+    <div class="left">📅 Day 3 · 8/23 周六 · 潮州古城 + 退程</div>
+    <div class="right">住宿：—（回家）</div>
+  </div>
+
+  <div class="poi">
+    <div class="poi-title">🚌 南澳岛 → 潮州古城（还车 + 公交方案）</div>
+    <div class="poi-time">08:00 - 10:30（约 2.5 小时）</div>
+    <div class="poi-desc">
+      <b>方案 A（推荐·自驾接驳）：</b>从南澳岛<b>还车后坐 161A 公交</b>返回汕头站（约 2 小时 ¥15/人），<b>出站后换 K2 公交直达潮州古城</b>（约 1 小时 ¥10/人）。4 人 ¥100 左右。<br>
+      <b>方案 B（拼车/打车）：</b>从南澳岛直接打车/拼车到潮州古城，约 ¥300-400/车，省 1 小时。<br>
+      <b>方案 C：</b>从南澳岛坐公交到汕头站寄存行李，再坐高铁到<b>潮汕站</b>（10 分钟 ¥20/人），打车去潮州古城（30 分钟 ¥80）。
+    </div>
+    <div class="poi-tips">
+      💡 推荐方案 A：公交直达，4 人 ¥100，是最划算的；只是 2.5 小时车程可能让娃烦躁，备零食平板
+    </div>
+  </div>
+
+  <div class="poi">
+    <div class="poi-title">🏯 牌坊街 + 广济桥</div>
+    <div class="poi-time">10:30 - 12:30</div>
+    <div class="poi-desc">潮州古城精华。牌坊街 23 座明清牌坊+老字号小吃（胡荣泉鸭母捻、春卷、腐乳饼）。广济桥（湘子桥）走一走。</div>
+    <div class="poi-tips">📷 广济桥中午拍水面倒影好看</div>
+  </div>
+
+  <div class="pitfall">
+    <b>避坑：</b>牌坊街车不能进，全步行，<b>带推车不便</b>。2 大 2 小建议 1 大抱妞妞，1 大带板栗走。避免买景区门口"牛肉丸"（贵且不正宗）。
+  </div>
+
+  <div class="poi">
+    <div class="poi-title">🍴 牛肉火锅午餐</div>
+    <div class="poi-time">12:30 - 14:00</div>
+    <div class="poi-desc">潮州最经典的就是<b>官塘兄弟牛肉店</b>或<b>阿彬牛肉火锅</b>。吊龙、嫩肉、牛肉丸都来一份，人均 ¥80。</div>
+    <div class="poi-tips">🍴 给孩子点番茄锅底+牛肉丸</div>
+  </div>
+
+  <div class="poi">
+    <div class="poi-title">🚄 潮汕站 → 广州南</div>
+    <div class="poi-time">14:30 - 18:00（约 3.5 小时）</div>
+    <div class="poi-desc">潮州古城打车到<b>潮汕站</b>约 50 分钟 ¥80。建议买 15:00 后车次，预留吃饭余量。儿童票同样板栗半票+妞妞免费。</div>
+    <div class="poi-tips">🎫 提前 30 分钟到潮汕站</div>
+  </div>
+
+  <div class="warn-strong">
+    <b>退程关键提醒：</b>潮汕站 ≠ 潮州站 ≠ 汕头站！<b>潮州古城回广州走潮汕站</b>（约 30km），不是汕头站（90 公里远）。
+  </div>
+</div>
+
+<!-- ============ 餐馆清单 ============ -->
+<div class="section">
+  <h2 style="font-size:18px;margin-bottom:10px;">🍴 8 家博主亲测餐馆（含生腌 ⭐）</h2>
+  <table>
+    <tr><th>城市</th><th>店名</th><th>招牌</th><th>人均</th><th>适合</th></tr>
+    <tr style="background:#fff7e6;font-weight:bold;">
+      <td>汕头</td><td>⭐ 金二顺潮汕生腌（非遗·龙眼南二店）</td><td>腌膏蟹、腌血蚌、腌生蚝</td><td>¥120</td><td><b>Day1 晚饭（你的生腌局）</b></td>
+    </tr>
+    <tr>
+      <td>汕头</td><td>瑞娇嫲嫲潮汕生腌（龙眼南路店）</td><td>腌膏蟹、腌虾</td><td>¥100</td><td>Day1 晚饭备选</td>
+    </tr>
+    <tr>
+      <td>汕头</td><td>八合里海记牛肉火锅</td><td>吊龙、嫩肉、牛肉丸</td><td>¥80</td><td>Day2 早午简餐</td>
+    </tr>
+    <tr>
+      <td>汕头</td><td>老潮兴粿品</td><td>红桃粿、鼠壳粿</td><td>¥20</td><td>街头小吃</td>
+    </tr>
+    <tr>
+      <td>南澳岛</td><td>渔香餐厅·海鲜大排档</td><td>现捞海鲜、椒盐皮皮虾</td><td>¥120</td><td>Day2 晚饭</td>
+    </tr>
+    <tr>
+      <td>南澳岛</td><td>许大姐的菜·青澳湾店</td><td>海鲜小炒、清蒸鱼</td><td>¥100</td><td>Day2 午饭</td>
+    </tr>
+    <tr>
+      <td>潮州</td><td>官塘兄弟牛肉店</td><td>吊龙、五花趾、牛肉丸</td><td>¥80</td><td>Day3 午餐</td>
+    </tr>
+    <tr>
+      <td>潮州</td><td>胡荣泉（牌坊街老店）</td><td>鸭母捻、春卷、腐乳饼</td><td>¥30</td><td>牌坊街小吃</td>
+    </tr>
+  </table>
+</div>
+
+<!-- ============ 总预算 ============ -->
+<div class="section">
+  <h2 style="font-size:18px;margin-bottom:10px;">💰 总预算估算（4 人）</h2>
+  <table>
+    <tr><th>项目</th><th>金额</th><th>说明</th></tr>
+    <tr>
+      <td>高铁（4人来回）</td>
+      <td>¥800</td>
+      <td>你+老婆 全票 ¥250×2 + 板栗 ¥110 + 妞妞免费 × 来回</td>
+    </tr>
+    <tr>
+      <td>住宿（2晚）</td>
+      <td>¥400</td>
+      <td>2 房一厅民宿，200/晚</td>
+    </tr>
+    <tr>
+      <td>岛内/市内交通</td>
+      <td>¥350</td>
+      <td>Day2 南澳岛自驾：平台日租 ¥150 + 过桥费 ¥96 + 油费 ¥70 + 手续费 ¥30 ≈ ¥350；Day1/Day3 打车寄存行李 ¥80</td>
+    </tr>
+    <tr>
+      <td>餐饮</td>
+      <td>¥1,150</td>
+      <td>4 人按 2.5 人算（小孩吃 1/4 份）：<br>Day1 生腌 ¥250（人均¥100×2.5）+ Day2 海鲜午饭¥250（人均¥100×2.5）+ Day2 海鲜晚饭¥275（人均¥110×2.5）+ Day3 牛肉火锅¥200（人均¥80×2.5）+ Day3 牌坊街小吃¥65（人均¥25×2.5）+ Day1 高铁零食¥40 + Day3 公交上零食¥70</td>
+    </tr>
+    <tr>
+      <td>景点门票</td>
+      <td>¥50</td>
+      <td>广济桥门票（小公园/南澳岛基本免费）</td>
+    </tr>
+    <tr>
+      <td>零食/纪念品</td>
+      <td>¥300</td>
+      <td>果汁冰、粿品、腐乳饼等带回家</td>
+    </tr>
+    <tr>
+      <td>沙滩玩具/防晒</td>
+      <td>¥100</td>
+      <td>一次性沙滩桶 + 防晒霜（家里有可省）</td>
+    </tr>
+    <tr style="background:#fff7e6;font-weight:bold;">
+      <td>合计</td><td>¥3150</td><td>不含购物买衣服/手信大件</td>
+    </tr>
+  </table>
+  <div class="budget">📌 餐饮按 2.5 人算（小孩吃 1/4 份）：¥250 + ¥250 + ¥275 + ¥200 + ¥65 + ¥40 + ¥70 = ¥1150。比 v11 老版本省 ¥¥550（4 人均份算多算的）</div>
+</div>
+
+<!-- ============ 出片机位 ============ -->
+<div class="section">
+  <h2 style="font-size:18px;margin-bottom:10px;">📷 出片机位清单</h2>
+  <table>
+    <tr><th>机位</th><th>位置</th><th>最佳时间</th></tr>
+    <tr><td>中山纪念亭（夜景）</td><td>汕头小公园中心</td><td>Day1 19:00 后开灯</td></tr>
+    <tr><td>海滨长廊</td><td>汕头海滨路沿海</td><td>夕阳时分（这次没赶上）</td></tr>
+    <tr><td>自然之门</td><td>南澳岛青澳湾</td><td>Day2 下午柔和光</td></tr>
+    <tr><td>长山尾灯塔</td><td>南澳岛最东端</td><td>Day2 黄昏</td></tr>
+    <tr><td>青澳湾沙滩</td><td>南澳岛东岸</td><td>Day2 上午/下午柔和光</td></tr>
+    <tr><td>广济桥</td><td>潮州古城东门外</td><td>Day3 中午（拍倒影）</td></tr>
+    <tr><td>牌坊街</td><td>潮州古城中心</td><td>Day3 早上人少</td></tr>
+  </table>
+</div>
+
+<!-- ============ 来源 ============ -->
+<div class="section">
+  <h2 style="font-size:18px;margin-bottom:10px;">📚 参考来源</h2>
+  <table class="src-table">
+    <tr><th>#</th><th>来源</th><th>URL</th></tr>
+    <tr><td>1</td><td>Trip.com 南澳岛亲子游防坑指南</td><td><a href="https://hk.trip.com/moments/detail/nan-ao-county-958-140634789">trip.com/moments/.../140634789</a></td></tr>
+    <tr><td>2</td><td>汕头本地宝·南澳岛必打卡景点</td><td><a href="https://m.st.bendibao.com/tour/11590.shtm">m.st.bendibao.com/tour/11590</a></td></tr>
+    <tr><td>3</td><td>YouTube 熊熊爱遛娃·汕头南澳岛 3 天 2 晚</td><td><a href="https://www.youtube.com/watch?v=ObyOUrD1C2M">youtube.com/watch?v=ObyOUrD1C2M</a></td></tr>
+    <tr><td>4</td><td>Trip.com 暑假遛娃·3 天 2 晚汕头避暑</td><td><a href="https://my.trip.com/moments/detail/nan-ao-county-958-148591661">my.trip.com/.../148591661</a></td></tr>
+    <tr><td>5</td><td>YouTube 熊熊爱遛娃·汕头潮州 3 天 2 晚</td><td><a href="https://www.youtube.com/watch?v=bYQOdkfuXCA">youtube.com/watch?v=bYQOdkfuXCA</a></td></tr>
+    <tr><td>6</td><td>搜狐·广东汕头小公园百载商埠</td><td><a href="https://www.sohu.com/a/643135166_117402">sohu.com/a/643135166_117402</a></td></tr>
+    <tr><td>7</td><td>搜狐·自然之门北回归线</td><td><a href="https://www.sohu.com/a/552612176_121123827">sohu.com/a/552612176_121123827</a></td></tr>
+    <tr><td>8</td><td>U Travel·汕头生腌/反沙芋/手信 10+ 推荐</td><td><a href="https://utravel.com.hk/news/detail/20056282">utravel.com.hk/.../20056282</a></td></tr>
+    <tr><td>9</td><td>Trip Moments·龙眼南路 12 家打卡（含金二顺生腌）</td><td><a href="https://hk.trip.com/moments/poi-jin-er-shun-marinated-raw-seafood-34571606">hk.trip.com/.../34571606</a></td></tr>
+    <tr><td>10</td><td>小红龙·潮州潮汕自由行 Top10</td><td><a href="https://www.kkday.com/zh-hk/blog/108180/%E6%BD%AE%E6%B1%95%E8%87%AA%E7%94%B1%E8%A1%8C">kkday.com/.../潮汕自由行</a></td></tr>
+    <tr><td>11</td><td>南澳岛酒店民宿汇总·永安旅游</td><td><a href="https://www.wingontravel.com/hotel/list-nanao-21939">wingontravel.com/hotel/list-nanao</a></td></tr>
+  </table>
+</div>
+
+<!-- ============ 备忘 ============ -->
+<div class="note">
+  <b>🚄 票务备忘：</b>今天 8/11，12306 预售 14 天 → <b>8/14 0 点起售 8/21 的票</b>。建议 <b>8/12-8/13</b> 提前定好闹钟买票。到时告诉我，我用 12306 实时查具体车次。
+</div>
+
+<div class="note">
+  <b>🎫 儿童票规则：</b>12306 规定 6 岁以下儿童免票（不占座），6-14 岁半票。板栗 7 岁 → <b>半票</b>；妞妞 4 岁 → <b>免费</b>（不占座就行，如需占座也是半票）。
+</div>
+
+<div class="note">
+  <b>👶 板栗妞妞专属提醒：</b>
+  <ul style="margin:6px 0;">
+    <li><b>Day1 生腌晚饭</b>：妞妞 4 岁别吃生的，板栗可以尝虾蟹；肠胃敏感配姜茶</li>
+    <li><b>南澳岛必备</b>：防晒霜 50+、沙滩鞋、换洗衣服 3 套、水壶、沙滩玩具</li>
+    <li>8 月汕头温度 32°C+，全程带小毛巾+帽子</li>
+    <li>2 房一厅民宿一间房，家长可早起给娃弄粥（小孩认床时可备点零食）</li>
+    <li>高铁回程备平板/绘本（车上 3.5 小时不无聊）</li>
+    <li>公交 161A 路坐 2 小时，建议带零食+平板</li>
+  </ul>
+</div>
+
+<div class="note">
+  <b>📌 v11 相比 v10 改了 5 处：</b>① Day1 改下午高铁晚上到；② 票价按"全票+全票+半票+免费"重做；③ 包车改成 161A 公交方案（省 ¥350）；④ Day1 晚饭强制生腌（金二顺/瑞娇嫲嫲）；⑤ <b>删除全部 6 张 SVG 风景图</b>（实景图才有意义，PDF 不再硬塞留白）。
+</div>
+
+<button class="fab" onclick="window.print()" title="打印/另存PDF">🖨️</button>
+<div class="fab-tip">点击打印或另存 PDF</div>
+
+</body>
+</html>
