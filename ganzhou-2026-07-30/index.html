@@ -9,43 +9,43 @@
   body { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; margin: 0 auto; padding: 0 20px; max-width: 900px; line-height: 1.65; color: #333; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .img { max-width: 90%; max-height: 240px; display: block; margin: 10px auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.10); }
   .src { font-size: 10px; color: #888; text-align: center; margin: 6px 0 18px; font-style: italic; }
-  .poi { margin: 16px 0; padding: 14px 18px; background: #FAFAFA; border-left: 4px solid #1F3A6E; border-radius: 0 6px 6px 0; }
-  .poi h3 { margin: 0 0 4px; font-size: 15px; color: #1F3A6E; }
+  .poi { margin: 16px 0; padding: 14px 18px; background: #FAFAFA; border-left: 4px solid #e76f51; border-radius: 0 6px 6px 0; }
+  .poi h3 { margin: 0 0 4px; font-size: 15px; color: #d95f3f; }
   .poi p { margin: 3px 0 5px; font-size: 12.5px; line-height: 1.65; }
-  .avoid { background: #FFEBEE; border-left: 3px solid #D32F2F; padding: 10px 14px; margin: 5px 0; font-size: 12px; }
-  .avoid b { color: #C00000; }
+  .avoid { background: #fdf0ec; border-left: 3px solid #e76f51; padding: 10px 14px; margin: 5px 0; font-size: 12px; }
+  .avoid b { color: #d95f3f; }
   .quote { background: #FFF9E6; border-left: 3px solid #F5C518; padding: 8px 14px; margin: 8px 0; font-size: 12px; font-style: italic; }
   table { border-collapse: collapse; }
 
   /* 顶部固定操作栏 */
   .toolbar {
     position: sticky; top: 0; z-index: 999;
-    background: #1F3A6E; color: white;
+    background: #e76f51; color: white;
     padding: 12px 22px;
     display: flex; gap: 10px; align-items: center; justify-content: space-between;
     box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   }
   .toolbar .info { font-size: 13px; opacity: 0.85; }
   .toolbar button {
-    background: white; color: #1F3A6E; border: none;
+    background: white; color: #d95f3f; border: none;
     padding: 7px 14px; border-radius: 4px;
     cursor: pointer; font-weight: 600; font-size: 13px;
     display: inline-flex; align-items: center; gap: 5px;
   }
-  .toolbar button:hover { background: #FFE699; color: #1F3A6E; }
-  .toolbar button.print { background: #C00000; color: white; }
-  .toolbar button.print:hover { background: #8B0000; }
+  .toolbar button:hover { background: #FFE699; color: #d95f3f; }
+  .toolbar button.print { background: #d95f3f; color: white; }
+  .toolbar button.print:hover { background: #c14f33; }
 
   /* 浮动按钮(滚到下面也能用) */
   .fab {
     position: fixed; bottom: 20px; right: 20px; z-index: 999;
-    background: #C00000; color: white; border: none;
+    background: #e76f51; color: white; border: none;
     width: 56px; height: 56px; border-radius: 50%;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     cursor: pointer; font-size: 24px;
     display: flex; align-items: center; justify-content: center;
   }
-  .fab:hover { background: #8B0000; transform: scale(1.1); }
+  .fab:hover { background: #c14f33; transform: scale(1.1); }
   .fab-tip {
     position: fixed; bottom: 84px; right: 20px; z-index: 998;
     background: rgba(0,0,0,0.75); color: white; padding: 6px 12px;
@@ -91,8 +91,14 @@
 </head>
 <body>
 
+<!-- 统一 banner -->
+<div class="banner" style="background:linear-gradient(135deg,#e76f51,#d95f3f);color:#fff;padding:28px 20px;border-radius:14px;text-align:center;margin:16px 0;box-shadow:0 4px 16px rgba(231,111,81,.25);">
+  <h1 style="font-size:28px;letter-spacing:1px;margin-bottom:6px;color:#fff;">🚂 赣州亲子攻略 · 4 天 3 晚</h1>
+  <div style="font-size:13px;opacity:.92;">13 条小红书博主亲测 · 7 页 · 卧铺出行</div>
+</div>
+
 <!-- 顶部固定操作栏:滚动到任何位置都能点 -->
-<div class="toolbar" id="toolbar">
+<div class="toolbar" id="toolbar" style="background:#faf7f2;position:sticky;top:0;z-index:99;">
   <div>
     <span style="font-size:15px;font-weight:bold;">🚂 赣州亲子攻略 · 4 天 3 晚</span>
     <span class="info" style="margin-left:10px;">13 条小红书博主亲测 · 7 页</span>
@@ -131,12 +137,12 @@
   });
 </script>
 
-<h1 style="background:#C00000;color:white;font-size:28px;text-align:center;padding:18px;margin:0;">🚂 赣州亲子慢游 4 天 3 晚 · 真图文版</h1>
-<div style="background:#C00000;color:white;text-align:center;padding:6px;font-size:12.5px;">来自 13 条小红书博主亲历笔记 · 8 家博主推荐餐馆 · 15 条第一人称避坑</div>
+<h1 style="background:#e76f51;color:white;font-size:28px;text-align:center;padding:18px;margin:0;">🚂 赣州亲子慢游 4 天 3 晚 · 真图文版</h1>
+<div style="background:#d95f3f;color:white;text-align:center;padding:6px;font-size:12.5px;">来自 13 条小红书博主亲历笔记 · 8 家博主推荐餐馆 · 15 条第一人称避坑</div>
 
 <!-- =================== 4 位博主亲测路线 =================== -->
 <table style="width:100%;">
-<tr><td style="background:#C00000;color:white;padding:8px;font-size:17px;font-weight:bold;text-align:center;">📕 4 位博主亲测 · 4 种走法</td></tr>
+<tr><td style="background:#e76f51;color:white;padding:8px;font-size:17px;font-weight:bold;text-align:center;">📕 4 位博主亲测 · 4 种走法</td></tr>
 </table>
 
 <table style="width:100%;margin-top:4px;font-size:12px;background:#FFF8E1;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
@@ -192,12 +198,12 @@ D3:通天岩(唯一门票,值得)→ 返程<br>
 
 <!-- =================== 4 天 3 晚板栗视角版 =================== -->
 <table style="width:100%;margin-top:10px;">
-<tr><td style="background:#1F3A6E;color:white;padding:8px;font-size:17px;font-weight:bold;text-align:center;">🎯 4 天 3 晚板栗视角版(融合 4 位博主精华)</td></tr>
+<tr><td style="background:#e76f51;color:white;padding:8px;font-size:17px;font-weight:bold;text-align:center;">🎯 4 天 3 晚板栗视角版(融合 4 位博主精华)</td></tr>
 </table>
 
 <!-- Day 1 -->
 <table style="width:100%;margin-top:4px;">
-<tr><td style="background:#1F3A6E;color:white;padding:8px;font-size:17px;font-weight:bold;text-align:center;">Day 1 · 卧铺 → 古浮桥 + 灶儿巷</td></tr>
+<tr><td style="background:#e76f51;color:white;padding:8px;font-size:17px;font-weight:bold;text-align:center;">Day 1 · 卧铺 → 古浮桥 + 灶儿巷</td></tr>
 </table>
 
 <div class="poi">
@@ -262,7 +268,7 @@ D3:通天岩(唯一门票,值得)→ 返程<br>
 
 <!-- Day 2 -->
 <table style="width:100%;margin-top:8px;">
-<tr><td style="background:#1F3A6E;color:white;padding:8px;font-size:17px;font-weight:bold;text-align:center;">Day 2 · 通天岩(江南第一石窟) + 福寿沟 + 宋潮不夜城</td></tr>
+<tr><td style="background:#e76f51;color:white;padding:8px;font-size:17px;font-weight:bold;text-align:center;">Day 2 · 通天岩(江南第一石窟) + 福寿沟 + 宋潮不夜城</td></tr>
 </table>
 
 <div class="poi">
@@ -314,7 +320,7 @@ D3:通天岩(唯一门票,值得)→ 返程<br>
 
 <!-- Day 3 -->
 <table style="width:100%;margin-top:8px;">
-<tr><td style="background:#1F3A6E;color:white;padding:8px;font-size:17px;font-weight:bold;text-align:center;">Day 3 · 大娃方特 / 小娃海洋世界(分流选项)</td></tr>
+<tr><td style="background:#e76f51;color:white;padding:8px;font-size:17px;font-weight:bold;text-align:center;">Day 3 · 大娃方特 / 小娃海洋世界(分流选项)</td></tr>
 </table>
 
 <div class="poi">
@@ -352,7 +358,7 @@ D3:通天岩(唯一门票,值得)→ 返程<br>
 
 <!-- Day 4 -->
 <table style="width:100%;margin-top:8px;">
-<tr><td style="background:#1F3A6E;color:white;padding:8px;font-size:17px;font-weight:bold;text-align:center;">Day 4 · 无量寺 + 古浮桥晨景 + 回程</td></tr>
+<tr><td style="background:#e76f51;color:white;padding:8px;font-size:17px;font-weight:bold;text-align:center;">Day 4 · 无量寺 + 古浮桥晨景 + 回程</td></tr>
 </table>
 
 <div class="poi">
@@ -374,7 +380,7 @@ D3:通天岩(唯一门票,值得)→ 返程<br>
 
 <!-- =================== 其他景点避坑 =================== -->
 <table style="width:100%;margin-top:10px;">
-<tr><td style="background:#D32F2F;color:white;padding:8px;font-size:17px;font-weight:bold;">⚠️ 其他景点避坑速查</td></tr>
+<tr><td style="background:#e76f51;color:white;padding:8px;font-size:17px;font-weight:bold;">⚠️ 其他景点避坑速查</td></tr>
 </table>
 <div class="avoid">
 <b>📕 赣州市博物馆</b><br>
@@ -427,7 +433,7 @@ D3:通天岩(唯一门票,值得)→ 返程<br>
 
 <!-- =================== 总预算 =================== -->
 <table style="width:100%;margin-top:8px;">
-<tr><td style="background:#1F3A6E;color:white;padding:8px;font-size:17px;font-weight:bold;text-align:center;">💰 总预算(基于小红书博主真实账单)</td></tr>
+<tr><td style="background:#e76f51;color:white;padding:8px;font-size:17px;font-weight:bold;text-align:center;">💰 总预算(基于小红书博主真实账单)</td></tr>
 </table>
 <table style="width:100%;font-size:12.5px;">
 <tr style="background:#F0F4F8;"><td style="padding:5px;border:1px solid #E0E0E0;"><b>路线</b></td><td style="padding:5px;border:1px solid #E0E0E0;"><b>构成</b></td><td style="padding:5px;border:1px solid #E0E0E0;text-align:right;"><b>2 大 1 小</b></td><td style="padding:5px;border:1px solid #E0E0E0;text-align:right;"><b>2 大 2 小</b></td></tr>
@@ -439,7 +445,7 @@ D3:通天岩(唯一门票,值得)→ 返程<br>
 
 <!-- =================== 18 个出片机位 =================== -->
 <table style="width:100%;margin-top:8px;">
-<tr><td style="background:#1F3A6E;color:white;padding:8px;font-size:17px;font-weight:bold;">📸 18 个小红书博主出片机位(旅行哈瑞 完整版)</td></tr>
+<tr><td style="background:#e76f51;color:white;padding:8px;font-size:17px;font-weight:bold;">📸 18 个小红书博主出片机位(旅行哈瑞 完整版)</td></tr>
 </table>
 <div style="font-size:11px;line-height:1.7;margin:8px 14px;">
 ❶ 标准钟 → ❷ 灶儿巷 → ❸ 寿量古寺 → ❹ 建春门 → ❺ 古浮桥 → ❻ 涌金门 → ❼ 八境台 → ❽ 龟角尾公园("孤独的树"黄昏逆光)→ ❾ 蒋经国旧居 → ❿ 郁孤台 → ⓫ 四贤坊/军门楼(晚上亮灯)→ ⓬ 宋潮不夜城 → ⓭ 赣州文庙(红墙黄绿瓷瓦,机位多)→ ⓮ 慈云塔(可从文庙找角度拍)→ ⓯ 海会禅寺 → ⓰ 魏家大院 → ⓱ 福寿沟博物馆 → ⓲ 通天岩(丹霞地貌、卧佛)
