@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>深圳大鹏亲子攻略 v2 · 杨梅坑→桔钓沙→盐灶 · 行程地图整合版</title>
+<style>
+:root{
+  --primary:#e76f51;
+  --bg:#faf7f2;
+  --card:#fff;
+  --text:#2b2b2b;
+  --muted:#777;
+  --blue:#1f4e78;
+  --blue-light:#e9f0f7;
+}
+*{box-sizing:border-box;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  max-width:900px;width:100%;
+  margin:0 auto;
+  padding:0 20px 20px;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.5;
+  font-size:13.5px;
+}
+h1,h2,h3,h4{margin:0;}
+a{color:var(--primary);text-decoration:none;}
+.banner{
+  background:linear-gradient(135deg,#e76f51,#d95f3f);
+  color:#fff;padding:26px 20px;border-radius:14px;
+  text-align:center;margin:20px 0 16px;
+  box-shadow:0 4px 16px rgba(200,16,46,.25);
+}
+.banner h1{font-size:26px;letter-spacing:2px;margin-bottom:4px;}
+.banner .sub{font-size:13px;opacity:.92;}
+
+.toolbar{position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:99;
+  display:flex;justify-content:flex-end;gap:8px;}
+.toolbar button{background:var(--primary);color:#fff;border:none;
+  padding:7px 13px;border-radius:8px;font-size:12px;cursor:pointer;}
+
+.section{margin:10px 0;padding:12px 16px;background:var(--card);border-radius:10px;
+  box-shadow:0 1px 3px rgba(0,0,0,.05);}
+.section-title{background:var(--blue);color:#fff;padding:9px 14px;border-radius:8px;
+  font-size:16px;font-weight:bold;margin:12px 0 8px;letter-spacing:1px;}
+
+.overview{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:6px 0;}
+.ov-card{background:var(--blue-light);padding:10px;border-radius:8px;text-align:center;}
+.ov-card .num{font-size:18px;color:var(--blue);font-weight:bold;}
+.ov-card .lbl{font-size:11px;color:var(--muted);margin-top:2px;}
+
+/* 地图 */
+.map-wrap{text-align:center;margin:6px 0;}
+.map-wrap img{max-width:100%;height:auto;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+.map-caption{font-size:10px;color:#777;margin-top:3px;}
+
+/* 定位点 */
+.poi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0;}
+.poi-card{background:var(--card);border:1px solid #eee;border-radius:8px;padding:10px 6px;text-align:center;}
+.poi-card .dot{width:26px;height:26px;border-radius:50%;margin:0 auto 5px;
+  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;font-size:13px;}
+.poi-card .p-name{font-size:12px;font-weight:bold;color:var(--blue);line-height:1.2;}
+.poi-card .p-coord{font-size:9.5px;color:var(--muted);margin:2px 0;line-height:1.2;}
+.poi-card a{display:inline-block;margin-top:5px;background:var(--primary);color:#fff;
+  padding:4px 10px;border-radius:16px;font-size:10px;text-decoration:none;}
+
+/* 时间线 */
+.timeline{position:relative;padding-left:24px;margin:8px 0;}
+.timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:3px;
+  background:linear-gradient(180deg,#e76f51,#1f4e78);border-radius:2px;}
+.tl-item{position:relative;margin:8px 0;padding:8px 12px;background:#fafafa;
+  border-left:3px solid var(--blue);border-radius:6px;}
+.tl-item::before{content:"";position:absolute;left:-23px;top:13px;width:10px;height:10px;
+  border-radius:50%;background:var(--primary);border:2px solid #fff;box-shadow:0 0 0 2px var(--primary);}
+.tl-item .tl-time{font-size:11px;color:var(--muted);font-weight:bold;}
+.tl-item .tl-name{font-size:14px;font-weight:bold;color:var(--blue);}
+.tl-item .tl-desc{font-size:12px;color:#555;}
+.tl-item .tl-drive{font-size:11px;color:var(--primary);font-weight:bold;}
+.tl-item.dest::before{background:#2ecc71;box-shadow:0 0 0 2px #2ecc71;}
+
+table{width:100%;border-collapse:collapse;margin:6px 0;font-size:13px;}
+th,td{padding:5px 8px;text-align:left;border-bottom:1px solid #eee;}
+th{background:var(--blue-light);color:var(--blue);font-weight:bold;}
+
+.pitfall{background:#fff1f0;border:1px solid #f48771;border-radius:4px;
+  padding:4px 8px;margin:3px 0;font-size:12px;line-height:1.4;}
+.pitfall::before{content:"⚠️ ";font-weight:bold;}
+
+.note{background:#fffbe6;border:1px dashed #ffe58f;border-radius:6px;padding:7px 10px;
+  margin:6px 0;font-size:12px;color:#7c5a00;}
+.note::before{content:"📌 ";}
+
+.warn-strong{background:#fff1f0;border:2px solid #ff4d4f;border-radius:6px;padding:10px 14px;
+  margin:10px 0;font-size:13px;color:#a8071a;}
+.warn-strong::before{content:"🚨 ";}
+
+.fab{position:fixed;bottom:20px;right:20px;background:var(--primary);color:#fff;border-radius:50%;
+  width:46px;height:46px;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 12px rgba(0,0,0,.2);cursor:pointer;font-size:20px;border:none;z-index:99;}
+
+@media print{
+  body{max-width:none !important;padding:0 !important;margin:0 !important;}
+  *,*::before,*::after{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;}
+  .toolbar,.fab{display:none !important;}
+}
+@media (max-width:600px){
+  body{padding:0 10px 30px;}
+  .overview{grid-template-columns:repeat(2,1fr);}
+  .poi-grid{grid-template-columns:repeat(2,1fr);}
+  .banner h1{font-size:20px;}
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button onclick="window.print()">🖨️ 打印/另存PDF</button>
+</div>
+
+<div class="banner">
+  <h1>🏖️ 深圳大鹏亲子 2 日</h1>
+  <div class="sub">8.22-8.23 · 多家庭通用 · 杨梅坑→桔钓沙→盐灶赶海</div>
+</div>
+
+<!-- 概览 -->
+<div class="section">
+<div class="section-title">📊 一眼看懂</div>
+<div class="overview">
+  <div class="ov-card"><div class="num">7:00</div><div class="lbl">周六出发</div></div>
+  <div class="ov-card"><div class="num">2天1晚</div><div class="lbl">多家庭</div></div>
+  <div class="ov-card"><div class="num">14:29</div><div class="lbl">盐灶干潮</div></div>
+  <div class="ov-card"><div class="num">~1100/家</div><div class="lbl">预算</div></div>
+</div>
+<div class="warn-strong"><strong>8.22 周六进大鹏必须预约通行！</strong>未预约罚 300 扣 1 分。微信"深圳交警"→星级用户→大鹏半岛预约。8.15 早 8:00 抢名额。</div>
+</div>
+
+<!-- 行程地图 -->
+<div class="section">
+<div class="section-title">🗺️ 行程地图（高德实测）</div>
+<div class="map-wrap">
+<img src="imgs/amap-route-map.png" alt="深圳大鹏行程地图">
+<div class="map-caption">高德底图 + 标注 · 橙线=开车顺序 · ①杨梅坑 ②桔钓沙 ③盐灶 ④民宿</div>
+</div>
+<table>
+<tr><th>路段</th><th>距离</th><th>用时</th></tr>
+<tr><td>南沙 → 杨梅坑</td><td>195km</td><td>约 2h</td></tr>
+<tr><td><b>杨梅坑 → 桔钓沙</b></td><td><b>2.6km</b></td><td><b>9 分钟</b></td></tr>
+<tr><td><b>桔钓沙 → 盐灶</b></td><td><b>31.2km</b></td><td><b>45 分钟</b></td></tr>
+<tr><td><b>盐灶 → 民宿</b></td><td>约 40km</td><td>约 1h</td></tr>
+</table>
+<div class="note"><b>为什么这顺序：</b>盐灶在最北，桔钓沙/杨梅坑在南，先南后北不绕路。看完全部地址点见下方"📍 导航定位"。</div>
+</div>
+
+<!-- 导航定位（所有地址集中） -->
+<div class="section">
+<div class="section-title">📍 导航定位（点击唤起高德）</div>
+<div class="poi-grid">
+  <div class="poi-card">
+    <div class="dot" style="background:#1f4e78;">1</div>
+    <div class="p-name">杨梅坑沙滩</div>
+    <div class="p-coord">新东路56号 · 8:00-19:00</div>
+    <a href="https://uri.amap.com/marker?position=114.570591,22.545182&name=杨梅坑沙滩&src=hermes&coordinate=gaode&callnative=1" target="_blank">📍 导航</a>
+  </div>
+  <div class="poi-card">
+    <div class="dot" style="background:#1f4e78;">2</div>
+    <div class="p-name">桔钓沙沙滩</div>
+    <div class="p-coord">新东路28号 · 8:00-18:00</div>
+    <a href="https://uri.amap.com/marker?position=114.552381,22.557058&name=桔钓沙沙滩&src=hermes&coordinate=gaode&callnative=1" target="_blank">📍 导航</a>
+  </div>
+  <div class="poi-card">
+    <div class="dot" style="background:#2ecc71;">3</div>
+    <div class="p-name">盐灶古村 ⭐赶海</div>
+    <div class="p-coord">坝核公路×243乡道 · 24h 免费</div>
+    <a href="https://uri.amap.com/marker?position=114.515419,22.646959&name=盐灶古村(坝光赶海)&src=hermes&coordinate=gaode&callnative=1" target="_blank">📍 导航</a>
+  </div>
+  <div class="poi-card">
+    <div class="dot" style="background:#e76f51;">4</div>
+    <div class="p-name">较场尾民宿（参考）</div>
+    <div class="p-coord">较场尾路76号 · 自行搜房</div>
+    <a href="https://uri.amap.com/marker?position=114.508005,22.587722&name=较场尾民宿(参考)&src=hermes&coordinate=gaode&callnative=1" target="_blank">📍 导航</a>
+  </div>
+</div>
+<div class="note">手机点"📍 导航"→ 自动唤起高德 App → 定位该点。建议 4 点先收藏。</div>
+</div>
+
+<!-- 行程 -->
+<div class="section">
+<div class="section-title">📅 行程</div>
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-time">🚗 7:00 - 9:00 · 195km</div>
+    <div class="tl-name">南沙 → 杨梅坑</div>
+    <div class="tl-desc">7:00 出发，8:00 前过虎门避堵，车上吃早餐</div>
+  </div>
+  <div class="tl-item dest">
+    <div class="tl-time">9:00 - 11:30</div>
+    <div class="tl-name">杨梅坑沙滩</div>
+    <div class="tl-desc">礁石+沙滩，水清，退潮捡贝壳小螃蟹</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-time">11:30 - 12:30</div>
+    <div class="tl-name">午餐</div>
+    <div class="tl-desc">村口潮汕牛肉店 人均 50 / 自带野餐</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-time">🚗 12:30 · 2.6km · 9 分钟</div>
+    <div class="tl-name">→ 桔钓沙</div>
+  </div>
+  <div class="tl-item dest">
+    <div class="tl-time">12:40 - 15:00</div>
+    <div class="tl-name">桔钓沙沙滩（备选赶海）</div>
+    <div class="tl-desc">银滩+玻璃海，14:29 干潮可捡贝壳；林荫躲晒</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-time">🚗 15:00 · 31.2km · 45 分钟</div>
+    <div class="tl-name">→ 盐灶古村（一路往北）</div>
+  </div>
+  <div class="tl-item dest">
+    <div class="tl-time">15:45 - 18:30</div>
+    <div class="tl-name">盐灶古村赶海 ⭐首推</div>
+    <div class="tl-desc">银叶树湿地滩涂，蛏子/螃蟹/贝类多；17:30 看日落</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-time">18:30 - 19:30</div>
+    <div class="tl-name">盐灶晚餐</div>
+    <div class="tl-desc">就近吃，别饿肚子开 1h 车</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-time">🚗 19:30 · 约 40km · 1h</div>
+    <div class="tl-name">→ 较场尾民宿</div>
+  </div>
+</div>
+<div class="note"><b>Day2 周日：</b>8:00 自然醒 → 9:30 桔钓沙赶海晨场（车程 12km/20 分钟）→ 11:00 午餐 → 12:00 回程南沙（避 15:00 晚高峰）。</div>
+</div>
+
+<!-- 避坑 -->
+<div class="section">
+<div class="section-title">🚨 避坑（精简版）</div>
+<div class="pitfall">大鹏 8.22 必须预约通行，未预约罚 300 扣 1 分，8.15 早 8:00 抢</div>
+<div class="pitfall">导航"桔钓沙"会导到收费的运动中心，搜"桔钓沙沙滩"</div>
+<div class="pitfall">盐灶是湿地保护区，核心区禁采集，在标牌范围内赶海</div>
+<div class="pitfall">赶海穿溯溪鞋/包趾凉鞋，拖鞋禁！盐灶泥滩加手套</div>
+<div class="pitfall">杨梅坑村 10-14 点单行管制，9:00 前到；村口海鲜宰客，皮皮虾 188 可砍 98</div>
+<div class="pitfall">桔钓沙 10:30-15:00 紫外线爆表，小宝必须遮阳棚下；冲凉 15/次</div>
+<div class="pitfall">鹿嘴山庄礁石湿滑，小宝严禁爬；快艇摩托 2 岁小宝不能上</div>
+<div class="pitfall">8.21 晚查天气，台风/暴雨改期；日落前 19:00 撤出盐灶滩涂</div>
+</div>
+
+<!-- 预算 -->
+<div class="section">
+<div class="section-title">💰 预算（每家庭）</div>
+<table>
+<tr><th>项目</th><th>单价</th></tr>
+<tr><td>住宿</td><td>300/间/晚（自行搜）</td></tr>
+<tr><td>餐饮</td><td>人均 80-100/天（每家庭 2.5 人算）</td></tr>
+<tr><td>油费</td><td>约 320/车（含盐灶）</td></tr>
+<tr><td>停车</td><td>60/车/天</td></tr>
+<tr><td>观光车/冲凉/装备</td><td>约 100/家</td></tr>
+<tr><td><b>合计</b></td><td><b>约 1100-1200/家</b></td></tr>
+</table>
+<div class="note" style="font-size:10.5px;color:#999;background:#fafafa;border-style:solid;border-color:#eee;">
+信息来源：携程·大鹏政府·大鱼潮汐表·21财经·高德 POI（盐灶/桔钓沙/杨梅坑实测 2026-08-12）。装备清单见另文件《深圳大鹏-装备清单》。
+</div>
+</div>
+
+<button class="fab" onclick="window.print()" title="打印">🖨️</button>
+
+</body>
+</html>
